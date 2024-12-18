@@ -1,0 +1,197 @@
+##https://keymap-drawer.streamlit.app/
+layout: {qmk_keyboard: corne_rotated, qmk_layout: LAYOUT_split_3x5_3}
+layers:
+  NAV:
+  - [TD(REBOOT), '', '', DF(BASE) ,'']
+  - [INS, HOME, UP, END, PGUP]
+  - [LGUI, LALT, LCTL, LSFT, '']
+  - [CAPS, LEFT, DOWN, RGHT, PGDN]
+  - ['', ALGR, DF(NUM), DF(NAV), '']
+  - [REDO, PASTE, COPY, CUT, UNDO]
+  - ['', {type: held}, '']
+  - [ENT, BSPC, {t: DEL, type: ghost}]
+  NUM:
+  - '['
+  - '7'
+  - '8'
+  - '9'
+  - ']'
+  - ''
+  - DF(BASE)
+  - ''
+  - ''
+  - TD(REBOOT)
+  - ;
+  - '4'
+  - '5'
+  - '6'
+  - '='
+  - ''
+  - LSFT
+  - LCTL
+  - LALT
+  - LGUI
+  - '`'
+  - '1'
+  - '2'
+  - '3'
+  - \
+  - ''
+  - DF(NUM)
+  - DF(NAV)
+  - ALGR
+  - ''
+  - .
+  - '0'
+  - '-'
+  - ''
+  - {type: held}
+  - {type: ghost}
+  FUN:
+  - TD(REBOOT)
+  - ''
+  - ''
+  - DF(BASE)
+  - ''
+  - PSCR
+  - F7
+  - F8
+  - F9
+  - F12
+  - LGUI
+  - LALT
+  - LCTL
+  - LSFT
+  - ''
+  - SCRL
+  - F4
+  - F5
+  - F6
+  - F11
+  - ''
+  - ALGR
+  - DF(SYM)
+  - DF(FUN)
+  - ''
+  - PAUS
+  - F1
+  - F2
+  - F3
+  - F10
+  - ''
+  - ''
+  - {type: held}
+  - ENT
+  - BSPC
+  - {t: APP, type: ghost}
+  SYM:
+  - '{'
+  - '&'
+  - '*'
+  - (
+  - '}'
+  - ''
+  - DF(BASE)
+  - ''
+  - ''
+  - TD(REBOOT)
+  - ':'
+  - $
+  - '%'
+  - ^
+  - +
+  - ''
+  - LSFT
+  - LCTL
+  - LALT
+  - LGUI
+  - '~'
+  - '!'
+  - '@'
+  - '#'
+  - '|'
+  - ''
+  - DF(SYM)
+  - DF(FUN)
+  - ALGR
+  - ''
+  - (
+  - )
+  - _
+  - {type: held}
+  - ''
+  - {type: ghost}
+  MOUSE(POINTING_DEVICE):
+  - C(Z)
+  - C(W)
+  - C(E)
+  - C(S(R))
+  - C(Y)
+  - DPI_MOD
+  - G(S(LEFT))
+  - G(UP)
+  - G(S(RIGHT))
+  - S_D_MOD
+  - LGUI
+  - LALT
+  - LCTL
+  - LSFT
+  - C(H)
+  - LEFT DESK
+  - G(LEFT)
+  - G(DOWN)
+  - G(RIGHT)
+  - RIGHT DESK
+  - {type: held}
+  - C(X)
+  - C(C)
+  - C(V)
+  - ''
+  - NEW DESK
+  - KC_BTN4
+  - KC_BTN5
+  - SNIPING
+  - DEL DESK
+  - 'KC_BTN2'
+  - 'KC_BTN1'
+  - 'DRGSCRL'
+  - ENT
+  - BSPC
+  - {t: DEL, type: ghost}
+  MOUSE(NO_POINTING_DEVICE):
+  - C(Z)
+  - C(W)
+  - C(E)
+  - C(S(R))
+  - C(Y)
+  - ''
+  - G(S(LEFT))
+  - MS_UP
+  - G(S(RIGHT))
+  - ''
+  - LGUI
+  - LALT
+  - LCTL
+  - LSFT
+  - C(H)
+  - LEFT DESK
+  - MS_LEFT
+  - MS_DOWN
+  - MS_RIGHT
+  - RIGHT DESK
+  - {type: held}
+  - C(X)
+  - C(C)
+  - C(V)
+  - ''
+  - NEW DESK
+  - KC_BTN4
+  - KC_BTN5
+  - SNIPING
+  - DEL DESK
+  - 'KC_BTN2'
+  - 'KC_BTN1'
+  - {t: 'KC_BTN3', h: WHEEL}
+  - ENT
+  - BSPC
+  - {t: DEL, type: ghost}
