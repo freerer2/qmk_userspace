@@ -57,3 +57,11 @@ This can also be used to control which fork is used, though only upstream `qmk_f
 1. (First time only) `git submodule add https://github.com/qmk/qmk_firmware.git`
 1. (To update) `git submodule update --init --recursive`
 1. Commit your changes to your userspace repository
+
+
+```
+qmk userspace-add -kb bastardkb/skeletyl/blackpill -km freerer2_36
+qmk userspace-add -kb bastardkb/charybdis/3x5/blackpill -km freerer2_36
+qmk userspace-add -kb lazyboy36/rp2040 -km freerer2_36
+qmk userspace-add -kb cantor -km freerer2_36
+```
