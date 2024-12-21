@@ -13,7 +13,7 @@ COMBO_ENABLE = yes
 ```
 ---
 
-`lazybones.h`
+`freerer2_36.h`
 -
 ```h
 //콤보 정의(이름, 작동키, 콤보키)
@@ -27,7 +27,7 @@ COMBO_X(KL,				KC_CAPS,	LCTL_T(KC_K),		LALT_T(KC_L))
 ```
 ---
 
-`lazybones.c`
+`freerer2_36.c`
 -
 ```c
 // 콤보 목록 나열

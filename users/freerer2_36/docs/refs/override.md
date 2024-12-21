@@ -5,7 +5,7 @@ KEY_OVERRIDE_ENABLE = yes
 ```
 ---
 
-`lazybones.h`
+`freerer2_36.h`
 -
 ```h
 	//오버라이드 조합키 정의(이름, 조합할 모드키, 조합할 키코드, 작동 키코드)
@@ -21,7 +21,7 @@ KEY_OVERRIDE_ENABLE = yes
 ```
 ---
 
-`lazybones.c`
+`freerer2_36.c`
 -
 ```c
 // 오버라이드 목록 나열

@@ -1,4 +1,4 @@
-# Lazybones
+# freerer2_36
 
 인간은 편한 삶을 위해 발전하며, 모두들 편하게 살기 위해 노력합니다.  
 효율적인 사람들은 최소한의 노력으로 최대의 효율을 내기 위해 머리를 씁니다.  
@@ -6,7 +6,7 @@
 
 ## 목차
 
-- [Lazybones](#lazybones)
+- [freerer2_36](#freerer2_36)
   - [목차](#목차)
   - [소개글](#소개글)
   - [레이어](#레이어)
@@ -49,29 +49,29 @@
 ### Skeletyl
 
 ```bash
-qmk compile -kb bastardkb/skeletyl/blackpill -km lazybones
+qmk compile -kb bastardkb/skeletyl/blackpill -km freerer2_36
 ```
 
 ### Charybdis Nano
 
 ```bash
-qmk compile -kb bastardkb/charybdis/3x5/blackpill -km lazybones
+qmk compile -kb bastardkb/charybdis/3x5/blackpill -km freerer2_36
 ```
 
 ### Lazyboy36
 
 ```bash
-qmk compile -kb lazyboy36/rp2040 -km lazybones
+qmk compile -kb lazyboy36/rp2040 -km freerer2_36
 ```
 
 ### Cantor
 
 ```bash
-qmk compile -kb cantor -km lazybones
+qmk compile -kb cantor -km freerer2_36
 ```
 
-<!-- ### qmk compile -kb bastardkb/skeletyl/blackpill -km lazybones -e DOUBLE_B=yes -->
-<!-- ### qmk compile -kb bastardkb/charybdis/3x5/blackpill -km lazybones -e DOUBLE_B=yes -->
+<!-- ### qmk compile -kb bastardkb/skeletyl/blackpill -km freerer2_36 -e DOUBLE_B=yes -->
+<!-- ### qmk compile -kb bastardkb/charybdis/3x5/blackpill -km freerer2_36 -e DOUBLE_B=yes -->
 
 ## 준비중인 기능
 
