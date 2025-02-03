@@ -8,6 +8,15 @@ void u_td_fn_boot(tap_dance_state_t *state, void *user_data) {
 	}
 };
 
+#define LAYER_X(LAYER, STRING) \
+void u_td_fn_L_##LAYER(tap_dance_state_t *state, void *user_data) { \
+  if (state->count == 2) { \
+    default_layer_set((layer_state_t)1 << L_##LAYER); \
+  } \
+}
+LAYER_LIST
+#undef LAYER_X
+
 void u_td_fn_slsh_finish(tap_dance_state_t *state, void *user_data) {
 	td_state = cur_dance(state);
 	switch (td_state) {
@@ -18,9 +27,14 @@ void u_td_fn_slsh_finish(tap_dance_state_t *state, void *user_data) {
 			#ifdef POINTING_DEVICE_ENABLE
 				charybdis_set_pointer_dragscroll_enabled(true);
 			#endif
-			layer_on(U_SCROL);
+			layer_on(L_SCROL);
 			break;
 		case TD_DOUBLE_TAP:
+			tap_code(KC_SLSH);
+			tap_code(KC_SLSH);
+			break;
+		case TD_TRIPPLE_TAP:
+			tap_code(KC_SLSH);
 			tap_code(KC_SLSH);
 			tap_code(KC_SLSH);
 		default:
@@ -37,29 +51,25 @@ void u_td_fn_slsh_reset(tap_dance_state_t *state, void *user_data) {
 			#ifdef POINTING_DEVICE_ENABLE
 				charybdis_set_pointer_dragscroll_enabled(false);
 			#endif
-			layer_off(U_SCROL);
+			layer_off(L_SCROL);
 			break;
-		case TD_DOUBLE_TAP:
 		default:
 			break;
     }
 	td_state = TD_NONE;
 }
 
-void u_td_fn_btn2scrl_finish(tap_dance_state_t *state, void *user_data) {
+void u_td_fn_btn3scrl_finish(tap_dance_state_t *state, void *user_data) {
 	td_state = cur_dance(state);
 	switch (td_state) {
 		case TD_SINGLE_TAP:
-			register_code(KC_BTN2);
+			register_code(KC_BTN3);
 			break;
 		case TD_SINGLE_HOLD:
 			#ifdef POINTING_DEVICE_ENABLE
 				charybdis_set_pointer_dragscroll_enabled(true);
-			#endif
-			break;
-		case TD_DOUBLE_TAP:
-			#ifndef POINTING_DEVICE_ENABLE
-				register_code(KC_BTN3);
+			#else
+				register_code(KC_LSFT);
 			#endif
 			break;
 		default:
@@ -67,20 +77,52 @@ void u_td_fn_btn2scrl_finish(tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void u_td_fn_btn2scrl_reset(tap_dance_state_t *state, void *user_data) {
+void u_td_fn_btn3scrl_reset(tap_dance_state_t *state, void *user_data) {
 	switch (td_state) {
 		case TD_SINGLE_TAP:
-			unregister_code(KC_BTN2);
+			unregister_code(KC_BTN3);
 			break;
 		case TD_SINGLE_HOLD:
 			#ifdef POINTING_DEVICE_ENABLE
 				charybdis_set_pointer_dragscroll_enabled(false);
+			#else
+				unregister_code(KC_LSFT);
 			#endif
 			break;
-		case TD_DOUBLE_TAP:
-			#ifndef POINTING_DEVICE_ENABLE
-				unregister_code(KC_BTN3);
-			#endif
+		default:
+			break;
+    }
+	td_state = TD_NONE;
+}
+
+static bool is_click = false;
+void u_td_fn_clickhold_finish(tap_dance_state_t *state, void *user_data) {
+	td_state = cur_dance(state);
+	switch (td_state) {
+		case TD_SINGLE_TAP:
+			register_code(KC_BTN1);
+			is_click = false;
+			break;
+		case TD_SINGLE_HOLD:
+			if(!is_click){
+				register_code(KC_BTN1);
+				is_click = true;
+			} else {
+				is_click = false;
+			}
+			break;
+		default:
+			break;
+    }
+}
+
+void u_td_fn_clickhold_reset(tap_dance_state_t *state, void *user_data) {
+	switch (td_state) {
+		case TD_SINGLE_TAP:
+			if(!is_click){
+				unregister_code(KC_BTN1);
+			}
+			break;
 		default:
 			break;
     }
@@ -91,7 +133,11 @@ void u_td_fn_btn2scrl_reset(tap_dance_state_t *state, void *user_data) {
 tap_dance_action_t tap_dance_actions[] = {
     [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
     [U_TD_SLSH_SCRL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, u_td_fn_slsh_finish, u_td_fn_slsh_reset),
-    [U_TD_BTN2_SCRL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, u_td_fn_btn2scrl_finish, u_td_fn_btn2scrl_reset),
+    [U_TD_BTN3_SCRL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, u_td_fn_btn3scrl_finish, u_td_fn_btn3scrl_reset),
+    [U_TD_CLICK_HOLD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, u_td_fn_clickhold_finish, u_td_fn_clickhold_reset),
+	#define LAYER_X(LAYER, STRING) [U_TD_L_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_L_##LAYER),
+	LAYER_LIST
+	#undef LAYER_X
 };
 
 //유저키코드
@@ -204,12 +250,12 @@ void matrix_scan_user(void) {
 //탭 시간간격
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-		case TD(U_TD_BTN2_SCRL): /*case TD(U_TD_SLSH_SCRL):*/
+		case TD(U_TD_BTN3_SCRL): /*case TD(U_TD_SLSH_SCRL):*/
 			return TAPPING_TERM - 50;
-		case LCTL_T(KC_D): case LSFT_T(KC_F): 
+		case LCTL_T(KC_D): case LSFT_T(KC_F): /*검지중지는 기본값*/
 		case LSFT_T(KC_J): case LCTL_T(KC_K): 
             return TAPPING_TERM;
-        case LGUI_T(KC_A): case LALT_T(KC_S):
+        case LGUI_T(KC_A): case LALT_T(KC_S): /*약지소지는 기본값-50*/
 		case LALT_T(KC_L): case LGUI_T(KC_QUOT):
             return TAPPING_TERM + 150;
         default:

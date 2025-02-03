@@ -35,3 +35,5 @@ XXX,	K20,	K21,	K22,	K23,	K24,				K25,	K26,	K27,	K28,	K29,	XXX, \
 //#define NO_ACTION_LAYER
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
+//#define MASTER_RIGHT
+#define MASTER_LEFT

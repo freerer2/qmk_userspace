@@ -34,6 +34,12 @@
 #	endif // !NO_CHARYBDIS_KEYCODES
 #endif // POINTING_DEVICE_ENABLE
 
+#define U_NAV(keycode) LT(L_NAV, keycode)
+#define U_MOUSE(keycode) LT(L_MOUSE, keycode)
+#define U_NUM(keycode) LT(L_NUM, keycode)
+#define U_FUN(keycode) LT(L_FUN, keycode)
+#define U_DEBUG(keycode) LT(L_DEBUG, keycode)
+
 // 유저키코드 나열
 enum user_keycodes {
 	ECLIPSE,
@@ -49,5 +55,9 @@ enum user_keycodes {
 enum double_tab_keycodes {
     U_TD_BOOT,
     U_TD_SLSH_SCRL,
-    U_TD_BTN2_SCRL,
+    U_TD_BTN3_SCRL,
+	U_TD_CLICK_HOLD,
+	#define LAYER_X(LAYER, STRING) U_TD_L_##LAYER,
+	LAYER_LIST
+	#undef LAYER_X
 };

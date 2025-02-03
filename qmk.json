@@ -4,8 +4,6 @@
         ["cantor", "freerer2_36"],
         ["bastardkb/skeletyl/blackpill", "freerer2_36"],
         ["bastardkb/charybdis/3x5/blackpill", "freerer2_36"],
-        ["lazyboy36/rp2040", "freerer2_36"],
-        ["lazyboy36/rp2040", "freerer2_30"],
-        ["cantor", "freerer2_30"]
+        ["lazyboy36/rp2040", "freerer2_36"]
     ]
 }
