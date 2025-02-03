@@ -69,6 +69,6 @@ KC_NO,				ECLIPSE,			BROWSER,			NEXACRO,			KC_NO,				KC_NO,				KC_NO,				KC_NO,	
 
 #define LAYER_CONTENT \
 KC_NO,				KC_NO,				KC_UP,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_UP,				KC_NO,				TD(U_TD_L_BASE),	\
-KC_LSFT,			KC_LEFT,			KC_DOWN,			KC_RGHT,			KC_NO,				KC_NO,				KC_LEFT,			KC_DOWN,			KC_RGHT,			KC_NO,				\
-KC_LCTL,			KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				\
+KC_LSFT,			KC_LEFT,			KC_DOWN,			KC_RGHT,			KC_NO,				KC_NO,				KC_LEFT,			KC_DOWN,			KC_RGHT,			KC_LSFT,			\
+KC_LCTL,			KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_LCTL,			\
 										KC_ESC,				KC_SPC,				KC_ENT,				KC_ENT,				KC_SPC,				KC_ESC
