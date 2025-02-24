@@ -59,6 +59,42 @@ void u_td_fn_slsh_reset(tap_dance_state_t *state, void *user_data) {
 	td_state = TD_NONE;
 }
 
+void u_td_fn_btn2scrl_finish(tap_dance_state_t *state, void *user_data) {
+	td_state = cur_dance(state);
+	switch (td_state) {
+		case TD_SINGLE_TAP:
+			register_code(KC_BTN2);
+			break;
+		case TD_SINGLE_HOLD:
+			#ifdef POINTING_DEVICE_ENABLE
+				charybdis_set_pointer_dragscroll_enabled(true);
+			#else
+				register_code(KC_LSFT);
+			#endif
+			break;
+		default:
+			break;
+    }
+}
+
+void u_td_fn_btn2scrl_reset(tap_dance_state_t *state, void *user_data) {
+	switch (td_state) {
+		case TD_SINGLE_TAP:
+			unregister_code(KC_BTN2);
+			break;
+		case TD_SINGLE_HOLD:
+			#ifdef POINTING_DEVICE_ENABLE
+				charybdis_set_pointer_dragscroll_enabled(false);
+			#else
+				unregister_code(KC_LSFT);
+			#endif
+			break;
+		default:
+			break;
+    }
+	td_state = TD_NONE;
+}
+
 void u_td_fn_btn3scrl_finish(tap_dance_state_t *state, void *user_data) {
 	td_state = cur_dance(state);
 	switch (td_state) {
@@ -133,6 +169,7 @@ void u_td_fn_clickhold_reset(tap_dance_state_t *state, void *user_data) {
 tap_dance_action_t tap_dance_actions[] = {
     [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
     [U_TD_SLSH_SCRL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, u_td_fn_slsh_finish, u_td_fn_slsh_reset),
+    [U_TD_BTN2_SCRL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, u_td_fn_btn2scrl_finish, u_td_fn_btn2scrl_reset),
     [U_TD_BTN3_SCRL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, u_td_fn_btn3scrl_finish, u_td_fn_btn3scrl_reset),
     [U_TD_CLICK_HOLD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, u_td_fn_clickhold_finish, u_td_fn_clickhold_reset),
 	#define LAYER_X(LAYER, STRING) [U_TD_L_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_L_##LAYER),
