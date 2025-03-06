@@ -8,7 +8,6 @@ LAYER_X(FUN,	"Fun") \
 LAYER_X(NAV,	"Nav") \
 LAYER_X(SYM,	"Sym") \
 LAYER_X(MOUSE,	"Mouse") \
-LAYER_X(SCROL,	"Scroll") \
 LAYER_X(CONTENT,"Content") \
 LAYER_X(DEBUG,	"Debug")
 
@@ -45,33 +44,24 @@ KC_RCTL,			KC_ALGR,			DF(L_SYM),			DF(L_FUN),			KC_NO,				KC_PAUS,			KC_F1,				K
 										KC_NO,				KC_NO,				KC_NO,				KC_ENT,				KC_BSPC,			KC_APP
 
 #define LAYER_DEBUG \
-DM_REC1,			DM_PLY1,			RESUME,				DM_PLY2,			DM_REC2,			KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				\
-KC_NO,			    STEP_INTO,			STEP_OVER,			STEP_OUT,			KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				\
+DM_REC1,			DM_PLY1,			RESUME,				DM_PLY2,			DM_REC2,			KC_NO,				U_WINFLT,			U_WINUP,			U_WINFRT,			KC_NO,				\
+KC_NO,			    STEP_INTO,			STEP_OVER,			STEP_OUT,			KC_NO,				KC_NO,				U_WINLT,			U_WINDN,			U_WINRT,			KC_NO,				\
 KC_NO,				ECLIPSE,			BROWSER,			NEXACRO,			KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				\
 										KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO
 
 #ifdef POINTING_DEVICE_ENABLE
 	#define LAYER_MOUSE \
-	TD(U_TD_BOOT),		KC_NO,				KC_NO,				DF(L_BASE),			KC_NO,				DPI_MOD,			U_WINFLT,			U_WINUP,			U_WINFRT,			S_D_MOD,			\
-	KC_LGUI,			KC_LALT,			KC_LCTL,			KC_LSFT,			KC_NO,				KC_NO,				U_WINLT,			U_WINDN,			U_WINRT,			KC_NO,				\
-	KC_RCTL,			KC_ALGR,			KC_NO,				KC_NO,				KC_NO,				KC_BTN4,			KC_BTN1,			KC_BTN2,			SNIPING,			KC_BTN5,			\
+	U_UND,				C(KC_W),			C(KC_E),			C(S(KC_R)),			U_RDO,				DPI_RMOD,			DPI_MOD,			KC_NO,				S_D_MOD,			S_D_RMOD,				\
+	C(KC_A),			C(KC_S),			C(KC_D),			C(KC_F),			C(KC_H),			KC_NO,				KC_LSFT,			KC_LCTL,			KC_LALT,			KC_LGUI,			\
+	KC_NO,				U_CUT,				U_CPY,				U_PST,				C(KC_B),			KC_BTN4,			KC_BTN1,			KC_BTN2,			SNIPING,			KC_BTN5,			\
 											KC_BTN3,			KC_BTN1,			TD(U_TD_BTN2_SCRL),	KC_NO,				KC_NO,				KC_NO
-	#define LAYER_SCROL \
-	TD(U_TD_BOOT),		KC_NO,				KC_NO,				DF(L_BASE),			KC_NO,				DPI_MOD,			U_WINFLT,			U_WINUP,			U_WINFRT,			S_D_MOD,			\
-	KC_LGUI,			KC_LALT,			KC_LCTL,			KC_LSFT,			KC_NO,				KC_NO,				U_WINLT,			U_WINDN,			U_WINRT,			KC_NO,				\
-	KC_RCTL,			KC_ALGR,			KC_NO,				KC_NO,				KC_NO,				KC_BTN4,			KC_BTN1,			KC_BTN2,			SNIPING,			KC_BTN5,			\
-											KC_BTN3,			KC_BTN1,			TD(U_TD_BTN2_SCRL),	KC_NO,				KC_NO,				KC_NO
+
 #else
 	#define LAYER_MOUSE \
-	TD(U_TD_BOOT),		KC_NO,				KC_NO,				DF(L_BASE),			KC_NO,				KC_NO,				U_WINFLT,			KC_MS_U,			U_WINFRT,			KC_NO,				\
+	U_UND,				KC_NO,				KC_NO,				KC_NO,				U_RDO,				KC_NO,				U_WINFLT,			KC_MS_U,			U_WINFRT,			KC_NO,				\
 	KC_LGUI,			KC_LALT,			KC_LCTL,			KC_LSFT,			KC_NO,				KC_NO,				KC_MS_L,			KC_MS_D,			KC_MS_R,			KC_NO,				\
-	KC_RCTL,			KC_ALGR,			KC_NO,				KC_NO,				KC_NO,				KC_BTN4,			TD(U_TD_CLICK_HOLD),KC_BTN2,			KC_NO,				KC_BTN5,			\
-											KC_BTN3,			KC_BTN1,			TD(U_TD_BTN2_SCRL),	KC_NO,				KC_NO,				KC_NO
-	#define LAYER_SCROL \
-	TD(U_TD_BOOT),		KC_NO,				KC_NO,				DF(L_BASE),			KC_NO,				KC_NO,				U_WINFLT,			KC_MS_U,			U_WINFRT,			KC_NO,				\
-	KC_LGUI,			KC_LALT,			KC_LCTL,			KC_LSFT,			KC_NO,				KC_NO,				KC_MS_L,			KC_MS_D,			KC_MS_R,			KC_NO,				\
-	KC_RCTL,			KC_ALGR,			KC_NO,				KC_NO,				KC_NO,				KC_BTN4,			TD(U_TD_CLICK_HOLD),KC_BTN2,			KC_NO,				KC_BTN5,			\
-											KC_BTN3,			KC_BTN1,			TD(U_TD_BTN2_SCRL),	KC_NO,				KC_NO,				KC_NO
+	KC_NO,				U_CUT,				U_CPY,				U_PST,				KC_NO,				KC_BTN4,			TD(U_TD_CLICK_HOLD),KC_BTN2,			KC_NO,				KC_BTN5,			\
+											KC_BTN3,			KC_BTN1,			TD(U_TD_BTN2_SCRL),	KC_NO,				KC_NO,				KC_NO	
 #endif // POINTING_DEVICE_ENABLE
 
 #define LAYER_CONTENT \
