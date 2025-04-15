@@ -2,7 +2,6 @@
 
 // 레이어 정의
 #define LAYER_LIST \
-LAYER_X(CMOS,	"Cmos") \
 LAYER_X(BASE,	"Base") \
 LAYER_X(NUM,	"Num") \
 LAYER_X(FUN,	"Fun") \
@@ -13,12 +12,6 @@ LAYER_X(CONTENT,"Content") \
 LAYER_X(DEBUG,	"Debug")
 
 #include "./keymap_keycode_setting.h"
-
-#define LAYER_CMOS \
-KC_U,    			KC_7,   			KC_8,    			KC_9,   			KC_NO,              QK_BOOT,  			KC_NO,    			KC_UP,   			KC_NO,    			KC_NO, 				\
-KC_AT,   			KC_4,   			KC_5,    			KC_6,   			KC_NO,              KC_CAPS,  			KC_LEFT,  			KC_DOWN, 			KC_RGHT,  			KC_NO, 				\
-CMOS,   			KC_1,   			KC_2,    			KC_3,    			KC_NO,              DF(L_BASE),    		KC_NO,    			KC_NO,   			KC_NO,    			KC_NO, 				\
-										KC_NO,   			KC_0, 				KC_NO,            	KC_ENT, 			KC_BSPC,  			KC_DEL
 
 #define LAYER_BASE \
 KC_Q,				KC_W,				KC_E,				KC_R,				KC_T,				KC_Y,				KC_U,				KC_I,				KC_O,				KC_P,				\

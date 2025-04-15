@@ -189,10 +189,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	case CMOS:
 		if (record->event.pressed) {
 			SEND_STRING("u175060@" SS_DELAY(1000) SS_TAP(X_ENT));
-			default_layer_set(2);
 		}
 		
 		return false;
+		
 		
 	case ECLIPSE:
 		if (record->event.pressed) {
