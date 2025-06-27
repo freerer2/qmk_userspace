@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../settings/keymap_layer_setting.h"
+#include "../settings/layer_setting.h"
 
 // 레이어 목록 나열
 enum layers {

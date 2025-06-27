@@ -11,7 +11,7 @@ LAYER_X(MOUSE,	"Mouse") \
 LAYER_X(CONTENT,"Content") \
 LAYER_X(DEBUG,	"Debug")
 
-#include "./keymap_keycode_setting.h"
+#include "./keycode_setting.h"
 
 #define LAYER_BASE \
 KC_Q,				KC_W,				KC_E,				KC_R,				KC_T,				KC_Y,				KC_U,				KC_I,				KC_O,				KC_P,				\

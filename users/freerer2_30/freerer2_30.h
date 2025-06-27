@@ -4,4 +4,4 @@
 #include "./keymap_helper/generators/keymap_generator.h"
 #include "./keymap_helper/generators/combo_generator.h"
 #include "./keymap_helper/generators/override_generator.h"
-#include "./keymap_helper/settings/tab_dance_setting.h"
+#include "./keymap_helper/generators/tab_dance_define.h"

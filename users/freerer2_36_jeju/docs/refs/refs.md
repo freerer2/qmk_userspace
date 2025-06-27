@@ -79,7 +79,7 @@ OVERRIDE_X(LT, MOD_MASK_SHIFT, KC_DOT, KC_LT)
 ## 키코드
 
 ### 키코드 추가/수정
-키코드 세팅 파일 : [keymap_keycode_setting.h](../../keymap_helper/settings/keymap_keycode_setting.h)  
+키코드 세팅 파일 : [keycode_setting.h](../../keymap_helper/settings/keycode_setting.h)  
 ```h
 //예제1
 enum keycodes {
@@ -93,4 +93,4 @@ enum keycodes {
 ## 레이어
 
 ### 레이어 추가/수정
-레이어 세팅 파일 : [keymap_layer_setting.h](../../keymap_helper/settings/keymap_layer_setting.h)  
+레이어 세팅 파일 : [layer_setting.h](../../keymap_helper/settings/layer_setting.h)  

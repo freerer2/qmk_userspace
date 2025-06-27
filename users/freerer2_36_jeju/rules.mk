@@ -12,3 +12,5 @@ CONSOLE_ENABLE = no #디버그용(단순 용량 줄이기)
 INTROSPECTION_KEYMAP_C = freerer2_36.c # keymaps
 
 NO_SUSPEND_POWER_DOWN = yes #QMK 20205번 이슈 내용 참고(https://github.com/qmk/qmk_firmware/pull/20205)
+
+JOYSTICK_ENABLE = yes

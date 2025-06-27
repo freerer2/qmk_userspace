@@ -11,7 +11,7 @@ LAYER_X(MOUSE,	"Mouse") \
 LAYER_X(CONTENT,"Content") \
 LAYER_X(DEBUG,	"Debug")
 
-#include "./keymap_keycode_setting.h"
+#include "./keycode_setting.h"
 
 #define LAYER_BASE \
 KC_Q,				KC_W,				KC_E,				KC_R,				KC_T,				KC_Y,				KC_U,				KC_I,				KC_O,				KC_P,				\
@@ -65,7 +65,7 @@ KC_NO,				ECLIPSE,			BROWSER,			NEXACRO,			KC_NO,				KC_NO,				KC_NO,				KC_NO,	
 #endif // POINTING_DEVICE_ENABLE
 
 #define LAYER_CONTENT \
-KC_NO,				KC_NO,				KC_UP,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_UP,				KC_NO,				TD(U_TD_L_BASE),	\
-KC_LSFT,			KC_LEFT,			KC_DOWN,			KC_RGHT,			KC_NO,				KC_NO,				KC_LEFT,			KC_DOWN,			KC_RGHT,			KC_LSFT,			\
-KC_LCTL,			KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_NO,				KC_LCTL,			\
-										KC_ESC,				KC_SPC,				KC_ENT,				KC_ENT,				KC_SPC,				KC_ESC
+JS_6,				KC_NO,				KC_NO,				KC_NO,				JS_8,				JS_9,				KC_NO,				KC_NO,				KC_NO,				JS_7,				\
+JS_10,				JS_LEFT,			JS_UP,				JS_RGHT,			JS_13,				JS_13,				JS_0,				JS_3,				JS_2,				JS_11,				\
+KC_NO,				KC_NO,				JS_DOWN,			KC_NO,				TD(U_TD_L_BASE),	TD(U_TD_L_BASE),	KC_NO,				JS_1,				KC_NO,				KC_NO,				\
+										JS_6,				JS_4,				JS_12,				JS_12,				JS_5,				JS_7

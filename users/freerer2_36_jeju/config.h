@@ -51,3 +51,8 @@
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define QUICK_TAP_TERM 0
+
+#define JOYSTICK_HAS_HAT
+#define JOYSTICK_BUTTON_COUNT 16
+#define JOYSTICK_AXIS_COUNT 4
+#define JOYSTICK_AXIS_RESOLUTION 8

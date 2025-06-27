@@ -50,7 +50,6 @@ enum user_keycodes {
 	STEP_OVER,
 	STEP_OUT,
 	RESUME,
-	CMOS,
 };
 
 // 더블탭 키코드 나열

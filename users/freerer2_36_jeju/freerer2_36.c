@@ -182,6 +182,39 @@ static bool is_eclipse = false;
 static bool is_browser = false;
 static bool is_nexaro = false;
 
+static bool dpad_up    = false;
+static bool dpad_down  = false;
+static bool dpad_left  = false;
+static bool dpad_right = false;
+
+void update_dpad_hat(void) {
+    if (dpad_up && dpad_right)
+        joystick_set_hat(JOYSTICK_HAT_NORTHEAST);
+    else if (dpad_up && dpad_left)
+        joystick_set_hat(JOYSTICK_HAT_NORTHWEST);
+    else if (dpad_down && dpad_right)
+        joystick_set_hat(JOYSTICK_HAT_SOUTHEAST);
+    else if (dpad_down && dpad_left)
+        joystick_set_hat(JOYSTICK_HAT_SOUTHWEST);
+    else if (dpad_up)
+        joystick_set_hat(JOYSTICK_HAT_NORTH);
+    else if (dpad_down)
+        joystick_set_hat(JOYSTICK_HAT_SOUTH);
+    else if (dpad_right)
+        joystick_set_hat(JOYSTICK_HAT_EAST);
+    else if (dpad_left)
+        joystick_set_hat(JOYSTICK_HAT_WEST);
+    else
+        joystick_set_hat(JOYSTICK_HAT_CENTER);
+}
+
+joystick_config_t joystick_axes[JOYSTICK_AXIS_COUNT] = {
+    JOYSTICK_AXIS_VIRTUAL, // 0: 좌측 X
+    JOYSTICK_AXIS_VIRTUAL, // 1: 좌측 Y
+    JOYSTICK_AXIS_VIRTUAL, // 2: 우측 X
+    JOYSTICK_AXIS_VIRTUAL  // 3: 우측 Y
+};
+
 // 유저키코드 처리
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -283,14 +316,40 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			}
 		}
 		return false;
-    }
+		
+	case JS_10: // L3
+		if (record->event.pressed) {
+			joystick_set_axis(0, -127); // X축 최대로 왼쪽
+		} else {
+			joystick_set_axis(0, 0);    // 뗄 때 원점 복귀
+		}
+		return false;
+	case JS_11: // R3: 오른쪽으로 스틱 이동
+		if (record->event.pressed) {
+			joystick_set_axis(2, 127);  // X축 최대로 오른쪽
+		} else {
+			joystick_set_axis(2, 0);    // 뗄 때 원점 복귀
+		}
+		return false;
+	case JS_UP:
+		dpad_up = record->event.pressed;
+		update_dpad_hat();
+		return false;
+	case JS_DOWN:
+		dpad_down = record->event.pressed;
+		update_dpad_hat();
+		return false;
+	case JS_LEFT:
+		dpad_left = record->event.pressed;
+		update_dpad_hat();
+		return false;
+	case JS_RGHT:
+		dpad_right = record->event.pressed;
+		update_dpad_hat();
+		return false;
+	}
     return true;
 };
-
-//유저 키 실시간처리
-void matrix_scan_user(void) {
-	//TODO : 상태값 같은걸 실시간으로 처리 가능함
-}
 
 //탭 시간간격
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -306,4 +365,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         default:
             return TAPPING_TERM;
     }
+}
+
+// matrix_scan_user에서 홀드 판정 및 스틱 이동 처리
+void matrix_scan_user(void) {
 }

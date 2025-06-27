@@ -93,4 +93,4 @@ enum keycodes {
 ## 레이어
 
 ### 레이어 추가/수정
-레이어 세팅 파일 : [keymap_layer_setting.h](../../keymap_helper/settings/keymap_layer_setting.h)  
+레이어 세팅 파일 : [layer_setting.h](../../keymap_helper/settings/layer_setting.h)  
